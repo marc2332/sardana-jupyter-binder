@@ -20,6 +20,8 @@ dependencies:
   - dash-core-components 
   - dash-html-components
   - taurus
+  - nodejs
+  - jupyter-server-proxy
   - pip:
     - git+https://gitlab.com/sardana-org/sardana.git
     - --editable=../

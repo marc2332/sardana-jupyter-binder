@@ -10,7 +10,6 @@ from sardana.macroserver.msdoor import BaseInputHandler
 from sardana.spock.ipython_01_00.genutils import expose_magic
 from sardana.taurus.core.tango.sardana.macro import MacroInfo
 from sardana.taurus.core.tango.sardana.sardana import Door, PlotType
-from jupyter_dash import JupyterDash
 from plotly import express
 import ipywidgets as widgets
 import yaml
@@ -109,7 +108,6 @@ class Extension:
     ms: MacroServer
     door: Door
     conf: Configuration
-    app: JupyterDash
     plotConf = {}
 
     # Progress bar widget
@@ -295,6 +293,9 @@ class Extension:
             )
 
             # Crate the JupyterDash app
+
+            from jupyter_dash import JupyterDash
+            JupyterDash.infer_jupyter_proxy_config()
             self.app = JupyterDash(__name__)
             self.app.layout = html.Div(
                 [
