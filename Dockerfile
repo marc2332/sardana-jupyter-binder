@@ -56,4 +56,4 @@ WORKDIR $HOME
 
 USER root
 
-ENTRYPOINT ./binder.sh && sudo -E PATH="${HOME}/anaconda3/envs/sardana-jupyter/bin:${PATH}" -u alba ${HOME}/anaconda3/envs/sardana-jupyter/bin/jupyter-lab $@
+ENTRYPOINT bash ./binder.sh && sudo -E PATH="${HOME}/anaconda3/envs/sardana-jupyter/bin:${PATH}" -u alba ${HOME}/anaconda3/envs/sardana-jupyter/bin/jupyter-lab $@
