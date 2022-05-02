@@ -1,5 +1,3 @@
-FROM  mysql/mysql-server
-
 FROM reszelaz/sardana-test:latest
 
 
@@ -52,8 +50,8 @@ RUN ${HOME}/anaconda3/bin/conda run --no-capture-output -n sardana-jupyter jupyt
 # Build Jupyter Lab because of Jupyter Dash
 RUN ${HOME}/anaconda3/bin/conda run --no-capture-output -n sardana-jupyter jupyter lab build
 
-WORKDIR $HOME
+WORKDIR ${HOME}
 
 USER root
 
-ENTRYPOINT bash ./binder.sh && sudo -E PATH="${HOME}/anaconda3/envs/sardana-jupyter/bin:${PATH}" -u alba ${HOME}/anaconda3/envs/sardana-jupyter/bin/jupyter-lab $@
+ENTRYPOINT bash ./binder.sh && sudo -u $USER /home/$USER/anaconda3/bin/conda run -n sardana-jupyter --no-capture-output jupyter $@

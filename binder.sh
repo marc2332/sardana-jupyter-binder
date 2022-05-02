@@ -1,5 +1,10 @@
 #!/bin/bash
 
+whoami
+pwd
+ls /home
+
+
 supervisord -n &
 
 echo "Running TangoDB"
