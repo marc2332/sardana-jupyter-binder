@@ -55,4 +55,4 @@ WORKDIR ${HOME}
 
 USER root
 
-ENTRYPOINT bash ./binder.sh & sudo -u $USER /home/$USER/anaconda3/bin/conda run -n sardana-jupyter --no-capture-output jupyter $@
+ENTRYPOINT sudo -u $USER /home/$USER/anaconda3/bin/conda run -n sardana-jupyter --no-capture-output jupyter $@
