@@ -9,6 +9,7 @@ ARG NB_UID=1000
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
 ENV HOME /home/${NB_USER}
+ENV JUPYTER_PORT=8888
 
 RUN adduser --disabled-password \
     --gecos "Default user" \
@@ -54,4 +55,4 @@ WORKDIR ${HOME}
 
 USER root
 
-ENTRYPOINT bash ./binder.sh && sudo -u $USER /home/$USER/anaconda3/bin/conda run -n sardana-jupyter --no-capture-output jupyter $@
+ENTRYPOINT bash ./binder.sh & sudo -u $USER /home/$USER/anaconda3/bin/conda run -n sardana-jupyter --no-capture-output jupyter $@
